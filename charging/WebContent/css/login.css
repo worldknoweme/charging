@@ -1,0 +1,110 @@
+ *{
+       			margin:0px;
+       			padding:0px;
+         }
+         html{
+         font-size:100%;
+         }
+         body{
+         font-size:1em;
+         }
+		#infobox{
+		font-size:1em;
+	   border-top:gray 0.06em solid;
+	   position:relative;
+		}
+	.clearfix:after{
+	content:"";
+	display:block;
+	clear:both;
+	height:0;
+	line-height:0;
+	visibility:hidden;
+	
+	}
+		.top{
+		height:2em;
+		font: italic  3.3em "microsoft yahei ";
+		color:#436EEE;
+		padding-left:3em;
+	    line-height:2em;
+	    position:relative;
+		}
+		.middle{
+		 height:24em;
+		 border: green 0.06em solid;
+		 position:relative;
+		 background: #B4EEB4 url("../images/bg1.jpg") no-repeat  1em;
+		 background-image: 
+		}
+		.footer{
+		height:4em;
+		line-height: 1.7em;
+		padding-left:5em;	
+		font-size:1em;
+		 position:relative;
+		}
+		
+		.login_{
+		width:27em;
+		height:23em;
+		position:absolute;
+		background-color:#F0FFF0;
+		border:1px #B4EEB4 solid;
+		right: 1em;
+		margin-top:0.5em;
+		}
+		.login_ .head{
+		height:2.5em;
+		color:gray;
+		font:2.6em "隶书";
+		border-bottom:solid;
+		line-height:2.5em;
+		padding-left:1em;
+		}
+		form {
+		height:10em;
+		font-family:"宋体";
+		}
+		form .user{
+		height:2.5em;
+		font-size:1.5em;
+		padding: 1em 0.8em;
+		
+		}
+		form .password{
+		height:2.5em;
+		font-size:1.5em;
+		padding: 0em 1.3em;
+		border-bottom:0.1em gray solid;
+		
+		}
+		.user input,.password input{
+		width:20em;
+		height:3em;
+		}
+		form #submit,form #reset{
+		    height:2em;
+		    width:4em;
+		    display:inline-block;
+		    font:1.5em "宋体";
+		    color:   blue;
+		    margin:1em  1em;
+		}
+		.login_tip{
+		width:10em;
+		height:3em;
+		display:inline-block;
+		color:red;
+		font-size:1.3em;
+		background-color:lightred;
+		float:right;
+		line-height:3em;
+		/* border:red 1px solid; */
+		}
+	.user #id:focus{
+		border:0.07em red solid;
+		}
+	 #password:focus{
+		border:0.07em red solid;
+		}

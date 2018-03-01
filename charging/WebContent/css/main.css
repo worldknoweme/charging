@@ -1,0 +1,159 @@
+	*{
+		margin:0px;
+		padding:0px;
+	}
+	 html{
+         font-size:100%;
+         height:100%;
+         }
+      body{
+         font-size:100%;
+         height:100%;
+         font-size:1em;
+         }
+	.body{
+		height:90%;
+		position:relative;
+		background-color:#F8ECD6;
+		/* border:1px red solid; */
+	}
+	#chart{
+	height:100%;
+	position:relative;
+	/* border:1px red solid; */
+	}
+	.clearfix:after{
+	content:"";
+	display:block;
+	clear:both;
+	height:0;
+	divne-height:0;
+	visibidivty:hidden;
+	
+	}
+	 #chart .voltage{
+	 margin-top:1%;
+	position:absolute;
+	background-color:white;
+	font-size:2em;
+	font-weight:bold;
+	left:27%;
+	height:40%;
+	width:44%;
+	display:inline-block;
+	/* border:1px red solid; */
+	}
+	#chart .current{
+	font-size:2em;
+	margin-top:22%;
+	position:absolute;
+	font-weight:bold;
+	left:27%;
+	height:40%;
+	width:44%;
+	background-color:white;
+	display:inline-block;
+	/* border:1px red solid; */
+	}
+	.data{
+	width:23%;
+	height:53%;
+	margin-top:7%;
+	border-bottom:1px gray solid;
+	/* border-right:1px gray solid; */
+	position:absolute;
+	left:1%;
+	background-color:#D1D5D6;
+	}
+	.data #datatop{
+	height:20%;
+	background-color: #1467B3;
+	color:white;
+	font-size:1.6em;
+/* 	divne-height:47px; */
+	padding-left:2%;
+	line-height:3em;
+	}
+	.data #dataBody{
+	margin-top:3%;
+	color:black;
+	font-size:1.4em;
+	/* border:1px red solid; */
+	}
+	#dataBody .realvol1,#dataBody .realvol2,#dataBody .realcur1,#dataBody .realcur2{
+	height:15%;
+	border-bottom:1px white solid;
+	line-height:2.5em;
+	padding-left:7%;
+
+	}
+	.realvol1 #realvol1,.realvol2 #realvol2,.realcur1 #realcur1,.realcur2 #realcur2{
+	margin-right:2%;
+	padding-left:1%;
+	height:63%;
+	width:40%;
+	display:inline-block;
+	color:red;
+	border-bottom:1px white solid;
+	border-left:2px gray solid;
+	border-top:1px gray solid;
+	border-right:1px white solid;
+	background-color:#F8ECD6;
+	line-height:1.7em;
+	}
+/* 	hidden */
+	.data .request{
+
+	float:right;
+	}
+	#alertmessage{
+	width:20%;
+	height:42%;
+	position:absolute;
+	margin-top:7%;
+	left:75%;
+	background-color:#D1D5D6;
+	border-bottom:1px gray solid;
+	/* border:1px red solid; */
+	}
+	#alertmessage #alertTop{
+	position:absolute;
+	height:20%;
+	width:98%;
+	background-color: #C11249;
+	color:white;
+	font:1.5em normal"宋体";
+	line-height:2.5em;
+	padding-left:2%;
+	/* border:1px red solid; */
+	}
+	#alertmessage #message{
+	color:blue;
+	height:50%;
+	width:100%;
+	position:absolute;
+	margin-top:23%;
+	font:1.4em formal "宋体";
+	border-bottom:1px gray dashed;
+	/* border:1px red solid; */
+	}
+	#alertmessage form{
+	height:30%;
+	}
+	#alertmessage input{
+	color:blue;
+	font:1.3em normal "宋体";
+	position:absolute;
+	/* float:left; */
+	margin-top:74%;
+	margin-left:30%;
+	background-color:#F8ECD6;
+	width:34%;
+	height:50%;
+	position:relative;
+	border-top:1px white solid;
+	border-left:1px white solid;
+	border-right:1px gray solid;
+	border-bottom:2px gray solid;
+	diaplay:inline-block;
+	}	

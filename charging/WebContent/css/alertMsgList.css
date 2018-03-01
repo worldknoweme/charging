@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+	.linkMao{
+	height:100px;
+	width:60px;
+	position:fixed;
+	top:100px;
+	right:27px;
+	background-color:white;
+	float:right;
+	font-size:20px;
+	color:black;
+	}
+	.utils{
+	position:fixed;
+	right:40px;
+	bottom:12px;
+	}
+	a{ 
+		color:black;
+	text-decoration:none;
+	}
+	.linkMao a{
+	display:block;
+	height:50px;
+	}
+	.linkMao .datatop{
+	height:50px;
+	line-height:50px;
+	border-bottom:1px gray solid;
+	}
+	.linkMao .databottom{
+	
+	height:50px;
+	line-height:50px;
+	}
+	.datatop a:hover{
+	color:white;
+	background-color:red;
+	}
+	.databottom a:hover{
+		color:white;
+	background-color:red;
+	}
+table .utils a{
+display:block;
+}

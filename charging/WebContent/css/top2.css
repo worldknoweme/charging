@@ -1,0 +1,115 @@
+			*{
+					margin:0px;
+					padding:0px;
+			}
+			html,body,.nav{
+			background-color:#D1D5D6;
+			position:relative;
+			width:100%;
+			/* border:1px #00ff00 solid; */
+			}
+			.nav{
+			/* border:10px #ff0080 solid; */
+			height:60px;
+			   /* border:1px red solid; */
+			background-color: #1467B3;
+			margin-top:7px auto;
+			position:relative;
+			
+			}
+			.hello a{
+			width:200px;
+			font:20px "宋体";
+			line-height:70px;
+			color:white;
+			text-decoration:none;
+			display:inline-block;
+			position:absolute;
+			left:30px;
+			}
+			.nav .logout{
+			width:50px;
+			text-decoration:none;
+			display:inline-block;
+			color:white;
+			font-size:20px;
+			line-height:70px;
+			padding:0 10px;
+			position:absolute;
+			left:170px;
+			}
+			.welcome{
+			position:absolute;
+			left:70px;	
+			}
+			ul{
+			position:relative;
+			left:170px;
+			
+			}
+		 li{
+					list-style:none;
+					float:right;
+					
+					display:inline-block;
+			}
+		 a.historydata{
+		     width:100px;
+			text-decoration:none;
+			display:inline-block;
+			color:white;
+			font-size:25px;
+			line-height:70px;
+			padding:0 10px;
+			position:absolute;
+			right:470px;
+		}
+		 a.historychart{
+		     width:100px;
+			text-decoration:none;
+			display:inline-block;
+			color:white;
+			font-size:25px;
+			line-height:70px;
+			padding:0 10px;
+			position:absolute;
+			right:340px;
+		}
+		 a.alertmessage{
+		     width:100px;
+			text-decoration:none;
+			display:inline-block;
+			color:white;
+			font-size:25px;
+			line-height:70px;
+			padding:0 10px;
+			position:absolute;
+			right:210px;
+		}
+		 a.main{
+		 position:absolute;
+		     width:100px;
+			text-decoration:none;
+			display:inline-block;
+			color:white;
+			font-size:25px;
+			line-height:70px;
+			right:570px;
+		}
+		 a.filemanager{
+		 position:absolute;
+		     width:100px;
+			text-decoration:none;
+			display:inline-block;
+			color:white;
+			font-size:25px;
+			line-height:70px;
+			right:770px;
+		}
+		a:hover{
+		color:  #CD6600  ;
+		}
+		.welcome .logout:hover{
+		color:black ;
+		}
+		

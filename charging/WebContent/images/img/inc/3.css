@@ -1,0 +1,10 @@
+body{
+	margin:0;
+	padding: 0px;
+
+	border:0px
+}
+table{border-collapse:collapse}
+body,td{font-size:12px;cursor:default;color:#000000}
+a:link,a:visited{color:#006600;text-decoration:none}
+a:hover {color:#9900FF;text-decoration:underline}

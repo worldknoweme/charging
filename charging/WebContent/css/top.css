@@ -1,0 +1,42 @@
+			*{
+					margin:0px;
+					padding:0px;
+			}
+		 html{
+         font-size:100%;
+         }
+         body{
+         font-size:1em;
+         background: silver;
+         }
+			.nav{
+				 
+				height:4.2em;
+				background-color: #1467B3;
+				margin:0.5em auto;
+				line-height:4.2em;
+				position:relative;
+			}
+			.welcome a{
+			/* width:200px; */
+			font:1.5em "宋体";
+			line-height:3em;
+			color:white;
+			text-decoration:none;
+			display:inline-block;
+			/* right:7em; */
+			margin-left:2em;
+			/* border:1px red solid; */
+			}
+			
+			.welcome .logout{
+			font:1.2em "宋体";
+			}
+			
+			a:hover{
+				/* background-color:green; */
+				color:  #CD6600  ;
+			}
+			.welcome .logout:hover{
+			color:black ;
+			}
