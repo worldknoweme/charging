@@ -37,7 +37,7 @@
           <td  align="left" ><input type="text" name="code" id="code" size="6" ></td>
           <td width="10%" height="20"><input type="submit" value=" 查询 " ></td>
           <td width="10%" height="20"><input type="button" value="添加" onclick="window.location.href='./DeviceAdd.jsp';"></td>
-       	   <td width="10%" height="20"><input type="button" value="地图查看" onclick="window.location.href='./DeviceAdd.jsp';"></td>
+       	   <td width="10%" height="20"><input type="button" value="地图查看" onclick="window.location.href='./AllDeviceInMap.jsp';"></td>
        	
         </tr>
       </table>
@@ -64,7 +64,10 @@
 				 <td width="17%"><%=d.getName() %></td>
 				 <td width="17%"><%=d.getAddress()%></td>
 				 <td width="17%"><%=d.getPerson() %></td>
-				 <td width="17%"><a href="#">编辑</a><a href="#">删除</a></td>
+				 <td width="17%">
+				 <a href="DeviceEdit.jsp?id=<%=d.getId()%>">编辑</a>
+				 <a href="DelDeviceServlet?id=<%=d.getId()%>">删除</a>
+				 </td>
 				 </tr>
 				<%}	
 			}

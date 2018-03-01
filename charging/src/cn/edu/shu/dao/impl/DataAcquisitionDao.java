@@ -427,4 +427,33 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 		return device;
 	}
 
+	@Override
+	public void delDeviceById(int id) {
+		// TODO Auto-generated method stub
+		String sql = "delete from device where id ="+id;
+		try {
+			qr.update(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public List<Device> getDeviceAll() {
+	
+		String	sql = "SELECT * FROM device";
+
+		List<Device> list = null;
+		try {
+			list = qr.query(sql, new BeanListHandler<Device>(Device.class));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		return (ArrayList<Device>) list;
+	}
+
 }

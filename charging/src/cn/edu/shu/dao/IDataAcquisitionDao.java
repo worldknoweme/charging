@@ -54,4 +54,10 @@ public interface IDataAcquisitionDao {
 	
 	//根据id进行充电桩的查询
 	public Device getDataByID(int id);
+	
+	//删除一条充电桩数据
+	public void delDeviceById(int id);
+	
+	//获取所有充电桩信息
+	public List<Device> getDeviceAll();
 }

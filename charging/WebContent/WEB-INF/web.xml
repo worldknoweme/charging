@@ -53,6 +53,12 @@
     <servlet-name>Login</servlet-name>
     <servlet-class>cn.edu.shu.servlet.Login</servlet-class>
   </servlet>
+
+  <servlet>
+    <display-name>DelDevice</display-name>
+    <servlet-name>DelDevice</servlet-name>
+    <servlet-class>cn.edu.shu.servlet.DelDevice</servlet-class>
+  </servlet>
   <servlet>
     <display-name>Logout</display-name>
     <servlet-name>Logout</servlet-name>
@@ -107,6 +113,10 @@
   <servlet-mapping>
     <servlet-name>RealTimeCurrServlet</servlet-name>
     <url-pattern>/RealTimeCurrServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelDevice</servlet-name>
+    <url-pattern>/DelDeviceServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>HistoryCurServlet</servlet-name>

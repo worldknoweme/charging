@@ -33,6 +33,24 @@ public class DeviceServiceImpl implements IDeviceService{
 		// TODO Auto-generated method stub
 		dataAcquisitionDao.saveOrUpdateDevice(device);
 	}
+
+	@Override
+	public void deleteDevice(int id) {
+		// TODO Auto-generated method stub
+		dataAcquisitionDao.delDeviceById(id);
+	}
+
+	@Override
+	public Device getDataByID(int id) {
+		// TODO Auto-generated method stub
+		return dataAcquisitionDao.getDataByID(id);
+	}
+
+	@Override
+	public List<Device> getDeviceAll() {
+		// TODO Auto-generated method stub
+		return dataAcquisitionDao.getDeviceAll();
+	}
 	
 
 }

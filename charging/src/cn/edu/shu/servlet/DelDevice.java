@@ -14,9 +14,9 @@ import cn.edu.shu.service.impl.DeviceServiceImpl;
 /**
  * 
  * @author 
- * 新增或者更新充电桩对应的servlet
+ * 删除充电桩对应的servlet
  */
-public class SaveOrUpdateDevice extends HttpServlet{
+public class DelDevice extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -30,17 +30,12 @@ public class SaveOrUpdateDevice extends HttpServlet{
 		req.setCharacterEncoding("utf8");
 		resp.setCharacterEncoding("utf8");
 		//获取数据
-		String code = req.getParameter("code");
+		
 		int id = Integer.parseInt(req.getParameter("id"));
-		String name = req.getParameter("name");
-		String address = req.getParameter("address");
-		String person = req.getParameter("person");
-		String lat = req.getParameter("lat");
-		String lng = req.getParameter("lng");
-		String des = req.getParameter("des");
+		
 		IDeviceService deviceService = new DeviceServiceImpl();
-		Device device = new Device(id, code, name, address, person, lat, lng, des);
-		deviceService.saveOrUpdateDevice(device);
+		
+		deviceService.deleteDevice(id);
 		resp.sendRedirect("./DeviceList.jsp");
 	}
 	
