@@ -8,6 +8,7 @@ import cn.edu.shu.entity.AlertData;
 import cn.edu.shu.entity.Data;
 import cn.edu.shu.entity.Device;
 import cn.edu.shu.entity.RealData;
+import cn.edu.shu.entity.User;
 import cn.edu.shu.utils.PageBean;
 
 /**
@@ -60,4 +61,21 @@ public interface IDataAcquisitionDao {
 	
 	//获取所有充电桩信息
 	public List<Device> getDeviceAll();
+	
+	
+	//根据用户名分页获取用户信息
+		public List<User> getUserListByUsernameAndLimit(String username,int start,int end);
+		//根据用户名查询用户总数
+		public int countUser(String username);
+		//插入或者更新一条用户信息
+		public void saveOrUpdateUser(User user);
+		
+		//根据id进行用户信息的查询
+		public User getUserByID(int id);
+		
+		//删除一条用户数据
+		public void delUserById(int id);
+		
+		//获取所有用户信息
+		public List<User> getUserAll();
 }

@@ -33,7 +33,7 @@ function fun1(){
 				<a class="historychart"href="./historyChart.jsp" title=历史曲线>历史曲线</a>
 				<a class="alertmessage" href="./AlertMsgList"  title=报警信息>报警信息</a>
 				<a class="filemanager" href="./fileManager.jsp" title=文件的上传与下载等>文件管理</a>
-				<a class="filemanager" href="./fileManager.jsp" title=文件的上传与下载等>用户管理</a>
+				<a class="filemanager" href="./UserList.jsp" title="用户管理">用户管理</a>
 				
 				 </div>	
 		

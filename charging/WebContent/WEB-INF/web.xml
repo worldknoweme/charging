@@ -102,6 +102,12 @@
     <servlet-name>FileManagerServlet</servlet-name>
     <servlet-class>cn.edu.shu.servlet.FileManagerServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>SaveOrUpdateUser</display-name>
+    <servlet-name>SaveOrUpdateUser</servlet-name>
+    <servlet-class>cn.edu.shu.servlet.SaveOrUpdateUser</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>FileManagerServlet</servlet-name>
     <url-pattern>/FileManagerServlet</url-pattern>
@@ -109,6 +115,10 @@
   <servlet-mapping>
     <servlet-name>IpcDataServlet</servlet-name>
     <url-pattern>/IpcDataServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveOrUpdateUser</servlet-name>
+    <url-pattern>/SaveOrUpdateUser</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>RealTimeCurrServlet</servlet-name>

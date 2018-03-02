@@ -18,6 +18,7 @@ import cn.edu.shu.entity.AlertData;
 import cn.edu.shu.entity.Data;
 import cn.edu.shu.entity.Device;
 import cn.edu.shu.entity.RealData;
+import cn.edu.shu.entity.User;
 import cn.edu.shu.utils.JdbcUtils;
 import cn.edu.shu.utils.PageBean;
 
@@ -454,6 +455,112 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 
 		
 		return (ArrayList<Device>) list;
+	}
+
+	@Override
+	public List<User> getUserListByUsernameAndLimit(String username,
+			int start, int end) {
+		List<User> list = null;
+		String sql = "SELECT * FROM userdata WHERE username =?  limit ?,?";
+		if (username == null || username.equals("")) {
+			sql = "SELECT * FROM userdata  limit ?,?";
+		}
+		try {
+			if (username == null || username.equals("")) {
+				list = qr.query(sql, new BeanListHandler<User>(User.class),
+						start, end);
+			} else {
+				list = qr.query(sql, new BeanListHandler<User>(User.class),
+						username, start, end);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return (ArrayList<User>) list;
+	}
+
+	@Override
+	public int countUser(String username) {
+		String sql = "select count(*) from userdata WHERE username = ?";
+		if (username == null || username.equals("")) {
+			sql = "select count(*) from userdata";
+		}
+		try {
+			Long count;
+			if (username == null || username.equals("")) {
+				count = qr.query(sql, new ScalarHandler<Long>());
+			} else {
+				count = qr.query(sql, new ScalarHandler<Long>(), username);
+			}
+
+			return count.intValue();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Override
+	public void saveOrUpdateUser(User user) {
+		String sql = "UPDATE userdata SET username=?,password=?,realname=?,unit=?,phone=?,email=?,priority=? WHERE Id=?";
+		try {
+			if (user.getId() != 0) {
+				//此时数据存在，进行数据的更新
+				qr.update(sql,user.getUsername(), user.getPassword(),
+						user.getRealname(), user.getUnit(),
+						user.getPhone(), user.getEmail(),user.getPriority(),user.getId());
+			} else {
+				sql = "insert into userdata(username,password ,realname,unit,phone,email,priority) values(?,?,?,?,?,?,?)";
+
+				qr.update(sql, user.getUsername(), user.getPassword(),
+						user.getRealname(), user.getUnit(),
+						user.getPhone(), user.getEmail(),user.getPriority());
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public User getUserByID(int id) {
+		User user = null;
+		String sql = "SELECT * FROM userdata WHERE id ="+id;
+		try {
+			user = qr.query(sql, new BeanHandler<User>(User.class));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
+
+	@Override
+	public void delUserById(int id) {
+		// TODO Auto-generated method stub
+				String sql = "delete from userdata where id ="+id;
+				try {
+					qr.update(sql);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+	}
+
+	@Override
+	public List<User> getUserAll() {
+		String	sql = "SELECT * FROM userdata";
+
+		List<User> list = null;
+		try {
+			list = qr.query(sql, new BeanListHandler<User>(User.class));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		return (ArrayList<User>) list;
 	}
 
 }
