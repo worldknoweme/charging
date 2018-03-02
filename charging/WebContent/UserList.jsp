@@ -22,11 +22,19 @@
 <html>
 <head>
 <title>用户信息</title>
+<script type="text/javascript">
+ function search(){
+	 //输入的用户名，用以查询
+	 //获取页面元素的时候，一定要记得使用双引号
+	 var usernamestring = document.getElementById("username").value;
+	 window.location.href='./UserList.jsp?username='+usernamestring;
+ }
+</script>
 </head>
 
 <body>
 <jsp:include page="./top.jsp" flush="true"/>
-<form action="UserList.jsp" >
+
 <table  width="100%"  border="1"  cellspacing="0" cellpadding="0" >
   <tr valign="top">
     <td>
@@ -35,7 +43,7 @@
           <td height="20"><font size="4"><b>查询数据</b></font>(格式:用户名)</td>
           <td  align="center" ><font size="4"><b>用户名：</b></font></td>
           <td  align="left" ><input type="text" name="username" id="username" size="6" ></td>
-          <td width="10%" height="20"><input type="submit" value=" 查询 " ></td>
+          <td width="10%" height="20"><input type="button" onclick="search()" value=" 查询 " ></td>
           <td width="10%" height="20"><input type="button" value="添加" onclick="window.location.href='./UserAdd.jsp';"></td>       	
         </tr>
       </table>
@@ -98,6 +106,6 @@
   </td>
 </tr>
 </table>
-</form>
+
 </body>
 </html>

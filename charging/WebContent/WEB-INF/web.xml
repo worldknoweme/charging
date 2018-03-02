@@ -31,7 +31,11 @@
     <servlet-name>HistoryDataList</servlet-name>
     <servlet-class>cn.edu.shu.servlet.HistoryDataList</servlet-class>
   </servlet>
-  
+  <servlet>
+    <display-name>DelUser</display-name>
+    <servlet-name>DelUser</servlet-name>
+    <servlet-class>cn.edu.shu.servlet.DelUser</servlet-class>
+  </servlet>
   <servlet>
     <display-name>AlertMsgList</display-name>
     <servlet-name>AlertMsgList</servlet-name>
@@ -127,6 +131,10 @@
   <servlet-mapping>
     <servlet-name>DelDevice</servlet-name>
     <url-pattern>/DelDeviceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelUser</servlet-name>
+    <url-pattern>/DelUserServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>HistoryCurServlet</servlet-name>

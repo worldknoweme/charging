@@ -22,11 +22,20 @@
 <html>
 <head>
 <title>数据信息</title>
+<script type="text/javascript">
+	//根据设备编号进行数据查询
+	function search(){
+		//输入的设备编号，用以查询
+		 //获取页面元素的时候，一定要记得使用双引号
+		 var codestring = document.getElementById("code").value;
+		 window.location.href='./DeviceList.jsp?code='+codestring;
+	}
+</script>
 </head>
 
 <body>
 <jsp:include page="./top.jsp" flush="true"/>
-<form action="DeviceList.jsp" >
+
 <table  width="100%"  border="1"  cellspacing="0" cellpadding="0" >
   <tr valign="top">
     <td>
@@ -35,7 +44,7 @@
           <td height="20"><font size="4"><b>查询历史数据</b></font>(格式:设备编号)</td>
           <td  align="center" ><font size="4"><b>设备编号：</b></font></td>
           <td  align="left" ><input type="text" name="code" id="code" size="6" ></td>
-          <td width="10%" height="20"><input type="submit" value=" 查询 " ></td>
+          <td width="10%" height="20"><input type="button" onclick="search()" value=" 查询 " ></td>
           <td width="10%" height="20"><input type="button" value="添加" onclick="window.location.href='./DeviceAdd.jsp';"></td>
        	   <td width="10%" height="20"><input type="button" value="地图查看" onclick="window.location.href='./AllDeviceInMap.jsp';"></td>
        	
@@ -86,6 +95,6 @@
   </td>
 </tr>
 </table>
-</form>
+
 </body>
 </html>

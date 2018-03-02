@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户信息编辑</title>
 </head>
-<body>
+<body onload="init()">
 <jsp:include page="./top.jsp" flush="true"/>
 <%
 	//根据id获取用户信息
@@ -22,8 +22,16 @@
 	
 %>
 <script type="text/javascript">
-var pro = <%=user.getPriority()%>
-document.getElementByName('priority').value=pro;
+//这里需要注意，一定要在onload方法里面去执行页面元素的操作
+//获取下拉列表元素，需要在整个页面加载完成之后进行
+function init(){
+	var pro =<%=user.getPriority()%>;
+	//获取下拉列表
+	var element = document.getElementById("priority");
+	//为下拉列表赋值
+	element.value = pro;
+}
+
 </script>
 <form action="SaveOrUpdateUser" method="post" >
 <table  width="100%"  border="1"  cellspacing="0" cellpadding="0" >
@@ -31,7 +39,8 @@ document.getElementByName('priority').value=pro;
  <td>
  用户名：
  </td>
- <td><input type="hidden" name="id" value="<%=user.getId()%>"><input type="text" name="username" value="<%=user.getUsername()%>"></td>
+ <td><input type="hidden" name="id" value="<%=user.getId()%>">
+ <input type="text" name="username" value="<%=user.getUsername()%>"></td>
  </tr>
   <tr valign="top">
  <td>
@@ -63,7 +72,7 @@ document.getElementByName('priority').value=pro;
  </tr>
  <tr>
  <td>权限：</td>
- <td><select name="priority">
+ <td><select name="priority" id="priority">
  	<option value="1" >普通用户</option>
  	<option value="0">管理员</option>
  </select></td>

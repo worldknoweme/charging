@@ -355,7 +355,8 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 	public List<Device> getDeviceListByCodeAndLimit(String code, int start,
 			int end) {
 		List<Device> list = null;
-		String sql = "SELECT * FROM device WHERE code =?  limit ?,?";
+		//进行模糊查询 like
+		String sql = "SELECT * FROM device WHERE code like ?  limit ?,?";
 		if (code == null || code.equals("")) {
 			sql = "SELECT * FROM device  limit ?,?";
 		}
@@ -364,8 +365,9 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 				list = qr.query(sql, new BeanListHandler<Device>(Device.class),
 						start, end);
 			} else {
+				//注意模糊查询的赋值需要放到此处 非sql语句部分
 				list = qr.query(sql, new BeanListHandler<Device>(Device.class),
-						code, start, end);
+						"%"+code+"%", start, end);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -375,7 +377,7 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 
 	@Override
 	public int countDevice(String code) {
-		String sql = "select count(*) from device WHERE code = ?";
+		String sql = "select count(*) from device WHERE code like ?";
 		if (code == null || code.equals("")) {
 			sql = "select count(*) from device";
 		}
@@ -384,7 +386,7 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 			if (code == null || code.equals("")) {
 				count = qr.query(sql, new ScalarHandler<Long>());
 			} else {
-				count = qr.query(sql, new ScalarHandler<Long>(), code);
+				count = qr.query(sql, new ScalarHandler<Long>(), "%"+code+"%");
 			}
 
 			return count.intValue();
@@ -461,7 +463,7 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 	public List<User> getUserListByUsernameAndLimit(String username,
 			int start, int end) {
 		List<User> list = null;
-		String sql = "SELECT * FROM userdata WHERE username =?  limit ?,?";
+		String sql = "SELECT * FROM userdata WHERE username like ?  limit ?,?";
 		if (username == null || username.equals("")) {
 			sql = "SELECT * FROM userdata  limit ?,?";
 		}
@@ -471,7 +473,7 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 						start, end);
 			} else {
 				list = qr.query(sql, new BeanListHandler<User>(User.class),
-						username, start, end);
+						"%"+username+"%", start, end);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -481,7 +483,7 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 
 	@Override
 	public int countUser(String username) {
-		String sql = "select count(*) from userdata WHERE username = ?";
+		String sql = "select count(*) from userdata WHERE username like ?";
 		if (username == null || username.equals("")) {
 			sql = "select count(*) from userdata";
 		}
@@ -490,7 +492,7 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 			if (username == null || username.equals("")) {
 				count = qr.query(sql, new ScalarHandler<Long>());
 			} else {
-				count = qr.query(sql, new ScalarHandler<Long>(), username);
+				count = qr.query(sql, new ScalarHandler<Long>(), "%"+username+"%");
 			}
 
 			return count.intValue();
