@@ -1,4 +1,8 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+﻿<%@page import="cn.edu.shu.entity.Data"%>
+<%@page import="java.util.List"%>
+<%@page import="cn.edu.shu.service.impl.HistoryDataServiceImpl"%>
+<%@page import="cn.edu.shu.service.IHistoryDataService"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -10,7 +14,31 @@
 <body>
 <jsp:include page="./top.jsp" flush="true"/>
 <%
-	
+//获取查询的设备id
+	String deviceid = request.getParameter("deviceid");
+	IHistoryDataService historyDataService = new HistoryDataServiceImpl();
+	//查询该设备对应的所有历史数据
+	List<Data> list = historyDataService.getHistroyDataByDeviceID(deviceid);
+	//展示时间
+	String time="";
+	//输入电流
+	String inVol = "";
+	//输入电压
+	String inCurrent = "";
+	//输出电流
+	String outVol = "";
+	//输出电压
+	String outCurrent = "";
+	for(Data data:list){
+		//获取历史数据信息并处理时间
+		String thisTime = data.getAddtime();
+		thisTime = thisTime.substring(0, 4)+"-"+thisTime.substring(4,6)+"-"+thisTime.substring(6,8);
+		time+="'"+thisTime+"',";
+		inVol+=data.getVoltage1()+",";
+		inCurrent+=data.getCurrent1()+",";
+		outVol+=data.getVoltage2()+",";
+		outCurrent+=data.getCurrent2()+",";
+	}
 %>
 <!-- <embed src="Lemon tree.mp3" hidden="true"> -->
  <div id="container" style="height: 100%"></div>
@@ -70,7 +98,7 @@
 	        {
 	            type : 'category',
 	            boundaryGap : false,
-	            data : ['2018-02-22','2018-02-23','2018-02-24','2018-02-25','2018-02-26','2018-02-27','2018-02-28']
+	            data : [<%=time%>]
 	        }
 	    ],
 	    yAxis : [
@@ -84,28 +112,28 @@
 	            type:'line',
 	            stack: '安培',
 	            areaStyle: {normal: {}},
-	            data:[120, 132, 101, 134, 90, 230, 210]
+	            data:[<%=inVol%>]
 	        },
 	        {
 	            name:'输入电压',
 	            type:'line',
 	            stack: '伏特',
 	            areaStyle: {normal: {}},
-	            data:[220, 182, 191, 234, 290, 330, 310]
+	            data:[<%=inCurrent%>]
 	        },
 	        {
 	            name:'输出电流',
 	            type:'line',
 	            stack: '安培',
 	            areaStyle: {normal: {}},
-	            data:[150, 232, 201, 154, 190, 330, 410]
+	            data:[<%=outVol%>]
 	        },
 	        {
 	            name:'输出电压',
 	            type:'line',
 	            stack: '伏特',
 	            areaStyle: {normal: {}},
-	            data:[320, 332, 301, 334, 390, 330, 320]
+	            data:[<%=outCurrent%>]
 	        }
 	    ]
 	};

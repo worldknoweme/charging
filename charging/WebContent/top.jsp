@@ -30,7 +30,7 @@ function fun1(){
 				 <a class="main" href="./main.jsp" title=首页>首 页</a>		
 				 <a class="devicedata" href="./DeviceList.jsp" title="充电桩维护">充电桩维护</a>			
 				<a class="historydata" href="./HistoryDataList" title="历史数据">历史数据</a>
-				<a class="historychart"href="./historyChart.jsp" title=历史曲线>历史曲线</a>
+				<a class="historychart"href="./DeviceSelect.jsp" title=历史曲线>历史曲线</a>
 				<a class="alertmessage" href="./AlertMsgList"  title=报警信息>报警信息</a>
 				<a class="filemanager" href="./fileManager.jsp" title=文件的上传与下载等>文件管理</a>
 				<a class="filemanager" href="./UserList.jsp" title="用户管理">用户管理</a>

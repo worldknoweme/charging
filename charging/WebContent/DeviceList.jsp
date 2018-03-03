@@ -41,7 +41,7 @@
     <td>
       <table width="100%" cellspacing="0" cellpadding="0" height="30">
         <tr>
-          <td height="20"><font size="4"><b>查询历史数据</b></font>(格式:设备编号)</td>
+          <td height="20"><font size="4"><b>查询设备</b></font>(格式:设备编号)</td>
           <td  align="center" ><font size="4"><b>设备编号：</b></font></td>
           <td  align="left" ><input type="text" name="code" id="code" size="6" ></td>
           <td width="10%" height="20"><input type="button" onclick="search()" value=" 查询 " ></td>

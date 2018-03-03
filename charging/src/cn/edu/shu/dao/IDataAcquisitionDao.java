@@ -22,6 +22,10 @@ public interface IDataAcquisitionDao {
 	public RealData getRealTimeData();
 	//获取历史数据
 	public ArrayList<Data> getHistroyData(String startD,String endD);
+	
+	//根据设备id获取该设备所有历史数据
+	public ArrayList<Data> getHistroyDataByDeviceID(String deviceID);
+		
 	//存放实时数据
 	public boolean updateRealData(double vol1,double vol2,double cur1,double cur2);
 	//存放历史数据

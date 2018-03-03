@@ -565,4 +565,20 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 		return (ArrayList<User>) list;
 	}
 
+	@Override
+	public ArrayList<Data> getHistroyDataByDeviceID(String deviceID) {
+		String	sql = "SELECT * FROM historydata where zl="+deviceID;
+
+		List<Data> list = null;
+		try {
+			list = qr.query(sql, new BeanListHandler<Data>(Data.class));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		return (ArrayList<Data>) list;
+	}
+
 }
