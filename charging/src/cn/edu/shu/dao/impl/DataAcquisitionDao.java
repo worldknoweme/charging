@@ -581,4 +581,18 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 		return (ArrayList<Data>) list;
 	}
 
+	@Override
+	public void insertData(String inputVol, String inputCurrent, String outVol,
+			String outCurrent, String deviceID) {
+		
+		String sql = "insert into currentdata(voltage1,current1,voltage2,current2,zlNo) values('"+inputVol+"','"+inputCurrent+"','"+outVol+"','"+outCurrent+"',"+deviceID+")";
+		try {
+			qr.update(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 }

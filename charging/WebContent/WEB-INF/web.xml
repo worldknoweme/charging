@@ -4,6 +4,11 @@
   <listener>
     <display-name>ContextDataListener</display-name>
     <listener-class>cn.edu.shu.listener.ContextDataListener</listener-class>
+    
+  </listener>
+  <listener>
+  <display-name>PortListener</display-name>
+  <listener-class>cn.edu.shu.listener.PortListener</listener-class>
   </listener>
   <filter>
     <display-name>LoginFilter</display-name>
