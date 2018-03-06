@@ -26,8 +26,8 @@ public class DataAcqService implements IDataAcqService {
 	/**
 	 * 获取实时支路数据(service)
 	 */
-	public RealData getRealTimeData() {
-		return dad.getRealTimeData();
+	public RealData getRealTimeData(String deviceID) {
+		return dad.getRealTimeData(deviceID);
 	}
 	
 	@Override

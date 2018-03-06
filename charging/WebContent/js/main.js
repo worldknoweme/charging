@@ -1,5 +1,9 @@
 var XMLHttpReq;
 	 var i = 0 ;
+	
+	 /**
+	  * 创建发送请求
+	  */
     function createXMLHttpRequest() {
     	   	
 		if(window.XMLHttpRequest) { //Mozilla 浏览器
@@ -18,13 +22,15 @@ var XMLHttpReq;
 		}	
 		
 	}
-	//发送请求函数
-	function sendRequest() {  
-		createXMLHttpRequest();
+	//发送请求函数（此处修改为按照设备id进行查询，需要传入设备的id信息）
+	function sendRequest(deviceID) {  
 		
-        var url = "./RealTime";
-       
-		XMLHttpReq.open("GET", url, true);  //创建一个新的http请求
+		//创建发送请求
+		createXMLHttpRequest();
+		//设置请求url，此处为servlet
+        var url = "./RealTime?deviceID="+deviceID;
+       //使用get方法获取数据
+		XMLHttpReq.open("POST", url, true);  //创建一个新的http请求
 		XMLHttpReq.onreadystatechange = processResponse;//指定响应函数，服务器返回信息后该函数进行响应
 		XMLHttpReq.send(null);  // 发送请求  
 	}
@@ -45,17 +51,19 @@ var XMLHttpReq;
             
                		 window.alert("您所请求的页面有异常");
            		 }  
+      		 	 //获取设备编号
+      		 	var deviceID = XMLHttpReq.responseXML.getElementsByTagName("device")
            		/* if(XMLHttpReq.responseXML.getElementsByTagName("zlNo")&&XMLHttpReq.responseXML.getElementsByTagName("zl")&&XMLHttpReq.responseXML.getElementsByTagName("alertime"))
            		window.alert( XMLHttpReq.responseXML.getElementsByTagName("alertime")[0].firstChild.nodeValue); */
-       		    setTimeout("sendRequest()", 1000); //
+       		    setTimeout("sendRequest("+deviceID+")", 2000); //
        		 	
        			 }
     	}
     	//else  window.alert(XMLHttpReq.readyState);
 }
-	
+	//进行数据的展示
     function DisplayHot() {
-    
+    	//从后台获取到数据之后
 	    var vol = XMLHttpReq.responseXML.getElementsByTagName("vol")[0].firstChild.nodeValue;	
 	    var vol2 = XMLHttpReq.responseXML.getElementsByTagName("vol2")[0].firstChild.nodeValue;	 
 	    var cur1 = XMLHttpReq.responseXML.getElementsByTagName("cur1")[0].firstChild.nodeValue;

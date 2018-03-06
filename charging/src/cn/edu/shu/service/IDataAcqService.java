@@ -11,8 +11,8 @@ import cn.edu.shu.utils.PageBean;
 public interface IDataAcqService {
 	//确认报警
 	public void confirmAlert();
-	//获取实时数据
-		public RealData getRealTimeData();
+	//获取实时数据（根据传入的设备ID）
+		public RealData getRealTimeData(String deviceID);
 		//获取历史数据
 		public ArrayList<Data> getHistroyData(String startD,String endD);
 		//存放实时数据

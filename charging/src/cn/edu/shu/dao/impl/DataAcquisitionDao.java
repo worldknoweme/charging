@@ -56,9 +56,13 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 	/**
 	 * 获取实时支路数据
 	 */
-	public RealData getRealTimeData() {
+	public RealData getRealTimeData(String deviceID) {
 
 		String sql = "SELECT * FROM currentdata WHERE id IN (SELECT MAX(id) FROM currentdata)";
+		//假如设备ID不为空，则需要在查询条件里面加上此条限制
+		if(deviceID!=null && !deviceID.equals("")){
+			sql ="SELECT * FROM currentdata WHERE id IN (SELECT MAX(id) FROM currentdata where zlNo="+deviceID+")";
+		}
 		RealData realData = null;
 		try {
 			realData = qr.query(sql, new BeanHandler<RealData>(RealData.class));
