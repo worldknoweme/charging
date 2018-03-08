@@ -2,7 +2,9 @@ package cn.edu.shu.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -588,8 +590,9 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 	@Override
 	public void insertData(String inputVol, String inputCurrent, String outVol,
 			String outCurrent, String deviceID) {
-		
-		String sql = "insert into currentdata(voltage1,current1,voltage2,current2,zlNo) values('"+inputVol+"','"+inputCurrent+"','"+outVol+"','"+outCurrent+"',"+deviceID+")";
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmssS");
+		String addTime = formatter.format(new Date());
+		String sql = "insert into currentdata(voltage1,current1,voltage2,current2,zlNo,addtime) values('"+inputVol+"','"+inputCurrent+"','"+outVol+"','"+outCurrent+"',"+deviceID+",'"+addTime+"')";
 		try {
 			qr.update(sql);
 		} catch (SQLException e) {
@@ -597,6 +600,20 @@ public class DataAcquisitionDao<T> implements IDataAcquisitionDao {
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public void batchCurrentData() {
+		// TODO Auto-generated method stub
+		String sql1 = "INSERT INTO historydata(zl,voltage1,current1,current2,voltage2,addtime) SELECT zlNo,voltage1,current1,current2,voltage2,addtime FROM currentdata";
+		String sql2 = "delete from currentdata";
+		try {
+			qr.update(sql1);
+			qr.update(sql2);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

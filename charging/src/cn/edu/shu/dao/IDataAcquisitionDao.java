@@ -91,4 +91,10 @@ public interface IDataAcquisitionDao {
 		 * @param deviceID 设备id
 		 */
 		public void insertData(String inputVol,String inputCurrent,String outVol,String outCurrent,String deviceID);
+
+		/**
+		 * 批量处理数据，将实时数据表里面的数据入库历史数据表
+		 * 之后将实时数据表清空
+		 */
+		public void batchCurrentData();
 }
