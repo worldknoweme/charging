@@ -1,6 +1,8 @@
 package cn.edu.shu.servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -44,16 +46,18 @@ public class AlertMsgList extends HttpServlet {
 				int curPage=Integer.parseInt(currentPage);
 				PageBean <AlertData> pageBean=new PageBean<AlertData>();
 				pageBean.setCurrentPage(curPage);
+				//获取当前时间即可
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
 				if(startD==null||"".equals(startD)){
-					startD="20160523222034001";
+					startD="20180301000001";
 					session.setAttribute("startD", startD);
 				}
 				if(endD==null||"".equals(endD)){
-					endD="20160929100311017";
+					endD=formatter.format(new Date());
 					session.setAttribute("endD", endD);		
 				}
 				if(pageCount==null||"".equals(pageCount)){
-					pageCount="1000";  //每页默认显示1000行
+					pageCount="20";  //每页默认显示20行
 					session.setAttribute("pageCount", pageCount);
 				}
 				pageBean.setPageCount(Integer.parseInt(pageCount));

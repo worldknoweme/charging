@@ -44,7 +44,7 @@ function addMarker(point,code,name,address,person){
 		  enableMessage:true,//设置允许信息窗发送短息
 		  message:""
 		}
-  var info = "编号："+code+"<br/>"+"名称："+name+"<br>"+"地址："+address+"<br>"+"负责人："+person;
+  var info = "编号：'"+code+"'<br/>"+"名称：'"+name+"'<br>"+"地址：'"+address+"'<br>"+"负责人：'"+person+"'";
 		var infoWindow = new BMap.InfoWindow(info, opts);  // 创建信息窗口对象 
 	marker.addEventListener("click", function(){          
 	map.openInfoWindow(infoWindow,point); //开启信息窗口
@@ -62,7 +62,7 @@ function addMarker(point,code,name,address,person){
 
 	%>
 	var point = new BMap.Point(<%=d.getLng()%>,<%=d.getLat()%>);
-	addMarker(point,<%=d.getCode()%>,<%=d.getName()%>,<%=d.getAddress()%>,<%=d.getPerson()%>);
+	addMarker(point,'<%=d.getCode()%>','<%=d.getName()%>','<%=d.getAddress()%>','<%=d.getPerson()%>');
 	 
 	<%}%>
 </script>

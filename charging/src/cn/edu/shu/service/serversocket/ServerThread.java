@@ -40,7 +40,7 @@ public class ServerThread extends Thread{
 			//初始化输入输出流
 			reader = new InputStreamReader(clientSocket.getInputStream());
 			inputstream = clientSocket.getInputStream();
-			writer = new OutputStreamWriter(clientSocket.getOutputStream(),"utf8");
+			writer = new OutputStreamWriter(clientSocket.getOutputStream(),"gbk");
 			input = new BufferedReader(reader);
 			output = new PrintWriter(writer,true);
 		}catch(IOException e){
@@ -48,8 +48,9 @@ public class ServerThread extends Thread{
 			
 		}
 		//服务端输出内容，提示客户端已经成功连接
-//		output.println("client link success!");
-//		output.flush();
+		
+		output.println("连接成功！请按照：输入电流,输入电压,输出电流,输出电压,设备id发送数据");
+		output.flush();
 	}
 	
 	
@@ -84,7 +85,7 @@ public class ServerThread extends Thread{
 					}else{
 						inputstream=null;
 					}					
-					output.println("hello");
+					output.println("恭喜你，处理完成！");
 					output.flush();
 					//规定为短连接，每次请求应答会话结束之后需要关闭socket
 					output.close();
