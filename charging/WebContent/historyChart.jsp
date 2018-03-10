@@ -112,28 +112,28 @@
 	            type:'line',
 	            stack: '安培',
 	            areaStyle: {normal: {}},
-	            data:[<%=inVol%>]
+	            data:[<%=inCurrent%>]
 	        },
 	        {
 	            name:'输入电压',
 	            type:'line',
 	            stack: '伏特',
 	            areaStyle: {normal: {}},
-	            data:[<%=inCurrent%>]
+	            data:[<%=inVol%>]
 	        },
 	        {
 	            name:'输出电流',
 	            type:'line',
 	            stack: '安培',
 	            areaStyle: {normal: {}},
-	            data:[<%=outVol%>]
+	            data:[<%=outCurrent%>]
 	        },
 	        {
 	            name:'输出电压',
 	            type:'line',
 	            stack: '伏特',
 	            areaStyle: {normal: {}},
-	            data:[<%=outCurrent%>]
+	            data:[<%=outVol%>]
 	        }
 	    ]
 	};

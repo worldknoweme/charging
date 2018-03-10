@@ -44,7 +44,13 @@
           <td  align="center" ><font size="4"><b>用户名：</b></font></td>
           <td  align="left" ><input type="text" name="username" id="username" size="6" ></td>
           <td width="10%" height="20"><input type="button" onclick="search()" value=" 查询 " ></td>
+           <%
+				   		if(session.getAttribute("pri").equals("0")){
+				   			
+				   		
+				   %>
           <td width="10%" height="20"><input type="button" value="添加" onclick="window.location.href='./UserAdd.jsp';"></td>       	
+        <%} %>
         </tr>
       </table>
     </td>

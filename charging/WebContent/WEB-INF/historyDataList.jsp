@@ -20,8 +20,8 @@ function submit1(str1,str2){
 		else{
 			var starttime=str1.split("");
 			var endtime=str2.split("");
-			if(starttime.length== 17&&endtime.length==17){
-				for(var i=0;i<17;i++){
+			if(starttime.length== 14&&endtime.length==14){
+				for(var i=0;i<14;i++){
 					if(starttime[i]==" "||endtime==" ")
 						return false;	
 				}
@@ -55,7 +55,7 @@ function submit1(str1,str2){
   	<table  width="80%"  border="1"  cellspacing="0" cellpadding="4" align="center"  >
 		  <tr valign="top">
 		    <td colspan="8">>
-			    <form action="../WriteSession" >
+			    <form action="WriteSession" >
 			    
 			    <!-- 使用两个hidden传递session和 页面标志符-->
 			    <input type="hidden" id="id" name="id" value="${sessionScope.id}">
@@ -63,7 +63,7 @@ function submit1(str1,str2){
 			    
 				      <table width="100%" cellspacing="0" cellpadding="0" height="30">
 				        <tr>
-				          <td height="20"><font size="4"><b>查询历史数据</b></font>(格式:年月日时分秒毫秒)</td>
+				          <td height="20"><font size="4"><b>查询历史数据</b></font>(格式:年月日时分秒)</td>
 				          <td  align="center" ><font size="4"><b>起始时间：</b></font></td>
 				          <td  align="left" ><input type="text" name="startD" id="startD" size="20"  value="${sessionScope.startD}"></td>
 				          <td  align="center"><font size="4"><b>截止时间：</b></font></td>

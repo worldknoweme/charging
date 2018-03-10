@@ -52,7 +52,7 @@ var XMLHttpReq;
                		 window.alert("您所请求的页面有异常");
            		 }  
       		 	 //获取设备编号
-      		 	var deviceID = XMLHttpReq.responseXML.getElementsByTagName("device")
+      		 	var deviceID = XMLHttpReq.responseXML.getElementsByTagName("zlNo")[0].firstChild.nodeValue;
            		/* if(XMLHttpReq.responseXML.getElementsByTagName("zlNo")&&XMLHttpReq.responseXML.getElementsByTagName("zl")&&XMLHttpReq.responseXML.getElementsByTagName("alertime"))
            		window.alert( XMLHttpReq.responseXML.getElementsByTagName("alertime")[0].firstChild.nodeValue); */
        		    setTimeout("sendRequest("+deviceID+")", 2000); //
@@ -63,6 +63,9 @@ var XMLHttpReq;
 }
 	//进行数据的展示
     function DisplayHot() {
+    	if(XMLHttpReq.responseXML.getElementsByTagName("vol").length!=0){
+    		
+    	
     	//从后台获取到数据之后
 	    var vol = XMLHttpReq.responseXML.getElementsByTagName("vol")[0].firstChild.nodeValue;	
 	    var vol2 = XMLHttpReq.responseXML.getElementsByTagName("vol2")[0].firstChild.nodeValue;	 
@@ -118,7 +121,13 @@ var XMLHttpReq;
 	     }
 		
 		 
+	}else{
+		 document.getElementById("realvol1").innerHTML = "0";	
+			document.getElementById("realvol2").innerHTML = "0" ;	
+			document.getElementById("realcur1").innerHTML = "0" ;	
+			document.getElementById("realcur2").innerHTML = "0";	 
 	}
+    }
      var colorArray=["blue","red"];
     var j=0;
 

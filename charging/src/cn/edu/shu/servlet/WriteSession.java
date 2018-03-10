@@ -37,10 +37,10 @@ public class WriteSession extends HttpServlet {
 //		System.out.println( session.getAttribute("pageCount"));
 		try {
 			if("HistoryDataList".equals(pageFlag)){
-				uri=request.getContextPath()+"/HistoryDataList";
+				uri="HistoryDataList";
 //				request.getRequestDispatcher(uri).forward(request, response);
 			}else if("AlertMsgList".equals(pageFlag)){
-				uri=request.getContextPath()+"/AlertMsgList";
+				uri="AlertMsgList";
 //				request.getRequestDispatcher(uri).forward(request, response);
 			}else{
 //				response.sendRedirect(request.getContextPath()+"/historyChart.jsp");

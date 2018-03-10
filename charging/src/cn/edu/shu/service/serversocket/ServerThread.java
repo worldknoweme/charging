@@ -72,7 +72,7 @@ public class ServerThread extends Thread{
 					if(len>0){
 						str = new String(buf, 0, len);
 						System.out.println("获取到的发送报文为："+str);
-						//下面进行报文处理，报文格式“设备id，输入电流，输入电压，输出电流，输出电压”
+						//下面进行报文处理，报文格式“输入电流，输入电压，输出电流，输出电压,设备id”
 						//解析数据之后，将数据存入实时数据表里面
 						String[] arr = str.split(",");
 						String inputVol = arr[0];
